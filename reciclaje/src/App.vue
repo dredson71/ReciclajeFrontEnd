@@ -46,7 +46,7 @@ export default {
        items: [
           { icon: 'dashboard', text: 'Inicio',route: '/' },
           { icon: 'folder', text: 'Departamento',route: '/departamento'  },
-          { icon: 'person', text: 'Profile' ,route: '/about' },
+          { icon: 'folder', text: 'Distrito' ,route: '/distrito' },
         ]
     }
   }

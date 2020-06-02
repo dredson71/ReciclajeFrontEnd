@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Departamentos from '../components/Departamento.vue'
+import Distritos from '../components/Distrito.vue'
+
 
 Vue.use(VueRouter)
 
@@ -15,6 +17,11 @@ Vue.use(VueRouter)
     path: '/departamento',
     name: 'departamentos',
     component: Departamentos
+  },
+  {
+    path: '/distrito',
+    name: 'distritos',
+    component: Distritos
   },
   {
     path: '/about',
