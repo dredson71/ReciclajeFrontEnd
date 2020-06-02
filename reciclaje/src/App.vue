@@ -1,60 +1,57 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+<v-app id="app" >
+ <v-app-bar app color="primary">
+      <v-app-bar-nav-icon color="white" @click="drawer = !drawer"></v-app-bar-nav-icon>
+  </v-app-bar>
+  
+        <v-navigation-drawer app v-model="drawer" class="primary">
+        <v-list>
+        <v-list-item v-for="item in items" :key="item.text" router :to="item.route" @click="drawer = !drawer">
+          <v-list-item-icon >
+            <v-icon color="white">{{ item.icon }}</v-icon>
+          </v-list-item-icon>
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
+          <v-list-item-content>
+            <v-list-item-title class="navigation_tile">{{ item.text }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
 
-      <v-spacer></v-spacer>
+<template v-slot:append>
+        <div class="pa-2">
+          <v-btn block>Logout</v-btn>
+        </div>
+      </template>
+        </v-navigation-drawer>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>open_in_new</v-icon>
-      </v-btn>
-    </v-app-bar>
 
     <v-content>
-      <HelloWorld/>
+      <v-container fluid fill-height>
+        <v-slide-y-transition mode="out-in">
+          <router-view/>
+        </v-slide-y-transition>
+      </v-container>
     </v-content>
+
+
   </v-app>
+
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld';
-
 export default {
   name: 'App',
-
-  components: {
-    HelloWorld,
-  },
-
-  data: () => ({
-    //
-  }),
-};
+  data () {
+    return {
+       drawer: false,
+       items: [
+          { icon: 'dashboard', text: 'Inicio',route: '/' },
+          { icon: 'folder', text: 'Departamento',route: '/departamento'  },
+          { icon: 'person', text: 'Profile' ,route: '/about' },
+        ]
+    }
+  }
+}
 </script>
+<style>
+  @import './assets/style.css';
+</style>
