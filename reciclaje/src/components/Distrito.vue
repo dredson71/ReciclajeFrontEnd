@@ -32,16 +32,19 @@
                 </v-layout>
               </v-container>
             </v-card-text>
-
-            <v-card-text>
-              <v-container grid-list-md>
-                <v-layout wrap>
-                  <v-flex xs12 sm12 md12>
-                    <v-text-field v-model="departamento_id" label="Departamento ID"></v-text-field>
-                  </v-flex>
-                </v-layout>
-              </v-container>
-            </v-card-text>
+            
+          <v-select
+          v-model="selected_Department"
+          :items="departamento"
+          item-text="nombre"
+          item-value="codigo"
+          label="Select"
+          v-on:change="setValue()"
+          persistent-hint
+          return-object
+          
+          single-line
+        ></v-select>
 
             <v-card-actions>
               <v-spacer></v-spacer>
@@ -97,6 +100,8 @@ export default {
   data() {
     return {
       distrito: [],
+      selected_Department: {  codigo: 0 },
+      departamento:[],
       dialog: false,
       headers: [
         { text: "Nombres", value: "nombre", sortable: false },
@@ -129,6 +134,7 @@ export default {
   created() {
     //TODO
     this.listar();
+    this.listar_departamento();
 
   },
   methods: {
@@ -139,6 +145,16 @@ export default {
       .get("/distrito")
       .then(function(response){me.distrito=response.data;})
       .catch(function(error){console.log(error);});
+    },
+    listar_departamento(){
+      let me=this;
+      axios
+      .get("/departamento")
+      .then(function(response){me.departamento=response.data;})
+      .catch(function(error){console.log(error);});
+    },
+    setValue(){
+    this.departamento_id = this.selected_Department.codigo
     },
     editItem(item) {
       //TODO
@@ -214,3 +230,6 @@ export default {
   }
 };
 </script>
+<style>
+  @import '../assets/style.css';
+</style>

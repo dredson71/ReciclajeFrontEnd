@@ -9,3 +9,8 @@
     color: black;
 
   }
+
+  .combobox {
+    width: 100%;
+    justify-content: center;
+}
