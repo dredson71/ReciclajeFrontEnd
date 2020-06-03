@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Departamentos from '../components/Departamento.vue'
+import Departamento_Detail from '../components/Departamento_Detail.vue'
+import Distrito_Detail from '../components/Distrito_Detail.vue'
 import Distritos from '../components/Distrito.vue'
 
 
@@ -19,10 +21,23 @@ Vue.use(VueRouter)
     component: Departamentos
   },
   {
+    path: '/departamento/:departamentoID',
+    name: 'departamentos_detail',
+    component: Departamento_Detail,
+    props: true,
+  },
+  {
     path: '/distrito',
     name: 'distritos',
     component: Distritos
   },
+  {
+    path: '/distrito/:distritoID',
+    name: 'distritos_detail',
+    component: Distrito_Detail,
+    props: true,
+  },
+
   {
     path: '/about',
     name: 'About',

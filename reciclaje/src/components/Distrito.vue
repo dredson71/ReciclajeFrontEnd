@@ -14,10 +14,12 @@
           hide-details
         ></v-text-field>
         <v-spacer></v-spacer>
-
+        <v-btn 
+         @click="open" color="primary">
+            Nuevo
+      </v-btn>
 
         <v-dialog v-model="dialog" max-width="500px">
-          <v-btn slot="activator" @click="open" color="primary" dark class="mb-2">Nuevo</v-btn>
           <v-card>
             <v-card-title>
               <span class="headline">{{ formTitle }}</span>
@@ -39,17 +41,22 @@
           item-text="nombre"
           item-value="codigo"
           label="Select"
-          v-on:change="setValue()"
           persistent-hint
           return-object
           
           single-line
         ></v-select>
 
-            <v-card-actions>
+             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" flat @click.native="close">Cancelar</v-btn>
-              <v-btn color="blue darken-1" flat @click.native="guardar">Guardar</v-btn>
+               <v-btn 
+          @click.native="close" color="primary">
+            Cancelar
+      </v-btn>
+      <v-btn 
+          @click.native="guardar" color="primary">
+            Guardar
+      </v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -63,20 +70,16 @@
     :search="search"
   >
     <template v-slot:item.actions="{ item }">
-      <v-icon
-        small
-        class="mr-2"
-        @click="editItem(item)"
-      >
-        edit
-      </v-icon>
+     
 
-      <v-icon
-        small
-        @click="deleteItem(item,item.codigo)"
+      <router-link :to="'/distrito/' + item.codigo "
       >
-        delete
-      </v-icon>
+       <v-btn icon >
+              <v-icon>info</v-icon>
+            </v-btn>
+      </router-link>
+
+  
     </template>
 
     <template v-slot:item.departamento.nombre="{ item }">
@@ -84,9 +87,12 @@
     </template>
 
 
+    
+
+
 
     <template v-slot:no-data>
-      <v-btn color="primary" @click="initialize">Reset</v-btn>
+      <v-btn color="primary" >Reset</v-btn>
     </template>
   </v-data-table>
 
@@ -153,9 +159,6 @@ export default {
       .then(function(response){me.departamento=response.data;})
       .catch(function(error){console.log(error);});
     },
-    setValue(){
-    this.departamento_id = this.selected_Department.codigo
-    },
     editItem(item) {
       //TODO
       this.codigo=item.codigo;
@@ -213,7 +216,7 @@ export default {
          .post("/distrito",{
              nombre:me.nombre,
               departamento: {
-             codigo: me.departamento_id 
+             codigo: me.selected_Department.codigo 
             }
          })
          .then(function(response){
