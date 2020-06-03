@@ -67,14 +67,13 @@
      
         <v-col>
          <v-select
-          v-model="departamento_id"
+          v-model.number="departamento_id"
+          type="number"
           :items="departamento"
           item-text="nombre"
           item-value="codigo"
           label="Select"
           persistent-hint
-          return-object
-          
           single-line
         ></v-select>    
         </v-col>
@@ -178,12 +177,13 @@ export default {
     },
     guardar() {
           let me =this;
+          console.log( me.departamento_id)
          axios
          .put("/distrito",{
             codigo:me.distrito.codigo,
             nombre:me.distrito.nombre,
-              departamento: {
-                 codigo: me.departamento_id.codigo 
+            departamento: {
+                 codigo: me.departamento_id
             }
          })
          .then(function(response){
