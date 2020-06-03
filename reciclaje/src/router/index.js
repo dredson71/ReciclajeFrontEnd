@@ -41,7 +41,7 @@ Vue.use(VueRouter)
   },
   {
     path: '/asociacion',
-    name: 'asociacion',
+    name: 'asociaciones',
     component: Asociaciones
   },
   {

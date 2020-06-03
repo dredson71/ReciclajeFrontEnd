@@ -110,7 +110,7 @@ export default {
       //TODO
       let me=this;
       axios
-      .get("/asociacion/"+ this.asociacion)
+      .get("/asociacion/"+ this.asociacionID)
       .then(function(response){me.asociacion=response.data;
       })
       .catch(function(error){console.log(error);});
