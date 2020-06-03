@@ -98,7 +98,6 @@ export default {
     data() {
     return {
       distrito: [],
-      /* Prueba Jorge */
       departamento:[],
       departamento_id: 1,
       dialog: false,
@@ -108,7 +107,6 @@ export default {
         v => (v && v.length <= 50) || 'Name must be less than 10 characters',
       ],
       form_Disable: false,
-
       codigo: '',
       nombre:'',
       valid: true,
@@ -119,7 +117,6 @@ export default {
       return this.editedIndex === -1 ? "Nuevo Distrito" : "Actualizar Distrito";
     }
   },
-
   watch: {
     dialog(val) {
       val || this.close();
@@ -141,7 +138,6 @@ export default {
       })
       .catch(function(error){console.log(error);});
     
-
     },
     listar_departamento(){
       let me=this;
@@ -153,11 +149,9 @@ export default {
     },
     validar(){
         const answer = window.confirm('Desea actualizar los datos ingresados?')
-
         if(answer && this.valid){
             this.guardar()
         }else{
-
         }
     },
     limpiar() {
@@ -166,11 +160,9 @@ export default {
     },
     validarDelete(){
     const answer = window.confirm('Desea eliminar el distrito seleccionado?')
-
         if(answer){
             this.deleteItem()
         }else{
-
         }
     },
     deleteItem(){
@@ -178,7 +170,6 @@ export default {
       axios.delete("/distrito/"+me.distrito.codigo)
       .then(function(response){
             window.location.href = '/distrito';
-
          })
       .catch(function(error){
               this.correct_data = false;
@@ -197,7 +188,6 @@ export default {
          })
          .then(function(response){
             window.location.href = '/distrito';
-
          })
          .catch(function(error){
              console.log(error);
