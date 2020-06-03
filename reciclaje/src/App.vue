@@ -52,6 +52,8 @@ export default {
           { icon: 'dashboard', text: 'Inicio',route: '/' },
           { icon: 'folder', text: 'Departamento',route: '/departamento'  },
           { icon: 'folder', text: 'Distrito' ,route: '/distrito' },
+          { icon: 'folder', text: 'Generador' ,route: '/generador' },
+          { icon: 'folder', text: 'Reciclador' ,route: '/reciclador' },
           { icon: 'folder', text: 'Asociación' ,route: '/asociacion' },
           { icon: 'folder', text: 'Condominio' ,route: '/condominio' },
           { icon: 'folder', text: 'Residuo' ,route: '/residuo' },

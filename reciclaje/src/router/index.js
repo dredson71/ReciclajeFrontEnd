@@ -11,6 +11,10 @@ import Condominio_Detail from '../components/Condominio_Detail.vue'
 import Condominios from '../components/Condominio.vue'
 import Residuo_Detail from '../components/Residuo_Detail.vue'
 import Residuos from '../components/Residuo.vue'
+import Generadores from '../components/Generador.vue'
+import Generador_Detail from '../components/Generador_Detail.vue'
+import Recicladores from '../components/Reciclador.vue'
+import Reciclador_Detail from '../components/Reciclador_Detail.vue'
 
 
 Vue.use(VueRouter)
@@ -30,7 +34,7 @@ Vue.use(VueRouter)
     path: '/departamento/:departamentoID',
     name: 'departamentos_detail',
     component: Departamento_Detail,
-    props: true,
+    props: true
   },
   {
     path: '/distrito',
@@ -42,6 +46,28 @@ Vue.use(VueRouter)
     name: 'distritos_detail',
     component: Distrito_Detail,
     props: true,
+  },
+  {
+    path: '/generador',
+    name: 'generadores',
+    component: Generadores
+  },
+  {
+    path: '/generador/:generadorID',
+    name: 'generadores_detail',
+    component: Generador_Detail,
+    props: true
+  },
+  {
+    path: '/reciclador',
+    name: 'recicladores',
+    component: Recicladores
+  },
+  {
+    path: '/reciclador/:recicladorID',
+    name: 'recicladores_detail',
+    component: Reciclador_Detail,
+    props: true
   },
   {
     path: '/asociacion',
