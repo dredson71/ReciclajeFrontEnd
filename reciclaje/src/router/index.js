@@ -7,6 +7,10 @@ import Distrito_Detail from '../components/Distrito_Detail.vue'
 import Distritos from '../components/Distrito.vue'
 import Asociacion_Detail from '../components/Asociacion_Detail.vue'
 import Asociaciones from '../components/Asociacion.vue'
+import Condominio_Detail from '../components/Condominio_Detail.vue'
+import Condominios from '../components/Condominio.vue'
+import Residuo_Detail from '../components/Residuo_Detail.vue'
+import Residuos from '../components/Residuo.vue'
 
 
 Vue.use(VueRouter)
@@ -48,6 +52,28 @@ Vue.use(VueRouter)
     path: '/asociacion/:asociacionID',
     name: 'asociacion_detail',
     component: Asociacion_Detail,
+    props: true,
+  },
+  {
+    path: '/condominio',
+    name: 'condominios',
+    component: Condominios
+  },
+  {
+    path: '/condominio/:condominioID',
+    name: 'condominio_detail',
+    component: Condominio_Detail,
+    props: true,
+  },
+  {
+    path: '/residuo',
+    name: 'residuos',
+    component: Residuos
+  },
+  {
+    path: '/residuo/:residuoID',
+    name: 'residuo_detail',
+    component: Residuo_Detail,
     props: true,
   },
 

@@ -53,6 +53,8 @@ export default {
           { icon: 'folder', text: 'Departamento',route: '/departamento'  },
           { icon: 'folder', text: 'Distrito' ,route: '/distrito' },
           { icon: 'folder', text: 'Asociación' ,route: '/asociacion' },
+          { icon: 'folder', text: 'Condominio' ,route: '/condominio' },
+          { icon: 'folder', text: 'Residuo' ,route: '/residuo' },
         ]
     }
   }
