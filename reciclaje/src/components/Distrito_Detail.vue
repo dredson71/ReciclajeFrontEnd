@@ -67,14 +67,13 @@
      
         <v-col>
          <v-select
-          v-model="departamento_id"
+          v-model.number="departamento_id"
+          type="number"
           :items="departamento"
           item-text="nombre"
           item-value="codigo"
           label="Select"
           persistent-hint
-          return-object
-          
           single-line
         ></v-select>    
         </v-col>
@@ -98,7 +97,6 @@ export default {
     data() {
     return {
       distrito: [],
-      /* Prueba Jorge */
       departamento:[],
       departamento_id: 1,
       dialog: false,
@@ -108,7 +106,6 @@ export default {
         v => (v && v.length <= 50) || 'Name must be less than 10 characters',
       ],
       form_Disable: false,
-
       codigo: '',
       nombre:'',
       valid: true,
@@ -119,7 +116,6 @@ export default {
       return this.editedIndex === -1 ? "Nuevo Distrito" : "Actualizar Distrito";
     }
   },
-
   watch: {
     dialog(val) {
       val || this.close();
@@ -141,7 +137,6 @@ export default {
       })
       .catch(function(error){console.log(error);});
     
-
     },
     listar_departamento(){
       let me=this;
@@ -153,11 +148,9 @@ export default {
     },
     validar(){
         const answer = window.confirm('Desea actualizar los datos ingresados?')
-
         if(answer && this.valid){
             this.guardar()
         }else{
-
         }
     },
     limpiar() {
@@ -166,11 +159,9 @@ export default {
     },
     validarDelete(){
     const answer = window.confirm('Desea eliminar el distrito seleccionado?')
-
         if(answer){
             this.deleteItem()
         }else{
-
         }
     },
     deleteItem(){
@@ -178,7 +169,6 @@ export default {
       axios.delete("/distrito/"+me.distrito.codigo)
       .then(function(response){
             window.location.href = '/distrito';
-
          })
       .catch(function(error){
               this.correct_data = false;
@@ -187,17 +177,17 @@ export default {
     },
     guardar() {
           let me =this;
+          console.log( me.departamento_id)
          axios
          .put("/distrito",{
             codigo:me.distrito.codigo,
             nombre:me.distrito.nombre,
-              departamento: {
-                 codigo: me.departamento_id.codigo 
+            departamento: {
+                 codigo: me.departamento_id
             }
          })
          .then(function(response){
             window.location.href = '/distrito';
-
          })
          .catch(function(error){
              console.log(error);
