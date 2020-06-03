@@ -5,6 +5,8 @@ import Departamentos from '../components/Departamento.vue'
 import Departamento_Detail from '../components/Departamento_Detail.vue'
 import Distrito_Detail from '../components/Distrito_Detail.vue'
 import Distritos from '../components/Distrito.vue'
+import Asociacion_Detail from '../components/Asociacion_Detail.vue'
+import Asociaciones from '../components/Asociacion.vue'
 
 
 Vue.use(VueRouter)
@@ -35,6 +37,17 @@ Vue.use(VueRouter)
     path: '/distrito/:distritoID',
     name: 'distritos_detail',
     component: Distrito_Detail,
+    props: true,
+  },
+  {
+    path: '/asociacion',
+    name: 'asociacion',
+    component: Asociaciones
+  },
+  {
+    path: '/asociacion/:asociacionID',
+    name: 'asociacion_detail',
+    component: Asociacion_Detail,
     props: true,
   },
 

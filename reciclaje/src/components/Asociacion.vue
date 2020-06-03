@@ -99,7 +99,7 @@ export default {
   },
   computed: {
     formTitle() {
-      return this.editedIndex === -1 ? "Nueva Asociacion" : "Actualizar Asociacion";
+      return this.editedIndex === -1 ? "Nueva Asociación" : "Actualizar Asociación";
     }
   },
 

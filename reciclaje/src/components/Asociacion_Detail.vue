@@ -5,7 +5,7 @@
     <v-container >
 
       <v-toolbar flat color="white">
-        <v-toolbar-title>Datos de la Asociacion</v-toolbar-title>
+        <v-toolbar-title>Datos de la Asociación</v-toolbar-title>
          <v-spacer></v-spacer>
  
       <v-btn icon>
@@ -90,7 +90,7 @@ export default {
   },
   computed: {
     formTitle() {
-      return this.editedIndex === -1 ? "Nueva Asociacion" : "Actualizar Asociacion";
+      return this.editedIndex === -1 ? "Nueva Asociación" : "Actualizar Asociación";
     }
   },
 

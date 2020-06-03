@@ -52,6 +52,7 @@ export default {
           { icon: 'dashboard', text: 'Inicio',route: '/' },
           { icon: 'folder', text: 'Departamento',route: '/departamento'  },
           { icon: 'folder', text: 'Distrito' ,route: '/distrito' },
+          { icon: 'folder', text: 'Asociación' ,route: '/asociacion' },
         ]
     }
   }
