@@ -98,6 +98,7 @@ export default {
     data() {
     return {
       distrito: [],
+      /* Prueba Jorge */
       departamento:[],
       departamento_id: 1,
       dialog: false,
