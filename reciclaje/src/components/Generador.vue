@@ -15,9 +15,235 @@
         ></v-text-field>
         <v-spacer></v-spacer>
         <v-btn 
+        @click="open"
          color="primary">
             Nuevo
       </v-btn>
+
+      <v-dialog v-model="dialog" max-width="500px">
+          <v-card>
+            <v-form v-model="valid" ref="form">
+            <v-card-title>
+              <span class="headline">{{ formTitle }}</span>
+            </v-card-title>
+
+            <v-card-text>
+              <v-container grid-list-md>
+                <v-layout wrap>
+                  <v-flex xs12 sm12 md12>
+                    <v-text-field v-model="nombre" 
+                    :rules="ruleNombre"
+                     required
+                    label="Nombre"></v-text-field>
+                  </v-flex>
+                </v-layout>
+              </v-container>
+            </v-card-text>
+
+            <v-card-text>
+              <v-container grid-list-md>
+                <v-layout wrap>
+                  <v-flex xs12 sm12 md12>
+                    <v-text-field v-model="apellido" 
+                    :rules="ruleApellido"
+                     required
+                    label="Apellido"></v-text-field>
+                  </v-flex>
+                </v-layout>
+              </v-container>
+            </v-card-text>
+
+            <v-card-text>
+              <v-container grid-list-md>
+                <v-layout wrap>
+                  <v-flex xs12 sm12 md12>
+                    <v-text-field v-model.number="dni" 
+                    :rules="ruleDNI"
+                     required
+                    type="number"
+                    label="DNI"></v-text-field>
+                  </v-flex>
+                </v-layout>
+              </v-container>
+
+
+            </v-card-text>
+               <v-card-text>
+                <v-container grid-list-md>
+                  <v-layout wrap>
+                    <v-flex xs12 sm12 md12>
+                      <v-date-picker
+                        v-model="picker"
+                        year-icon="mdi-calendar-blank"
+                        prev-icon="mdi-skip-previous"
+                        next-icon="mdi-skip-next"
+                      ></v-date-picker>
+                     </v-flex>
+                </v-layout>
+              </v-container>
+            </v-card-text>
+
+           
+
+            <v-card-text>
+              <v-container grid-list-md>
+                <v-layout wrap>
+                  <v-flex xs12 sm12 md12>
+                    <v-text-field v-model="direccion" 
+                    :rules="ruleDireccion"
+                    required
+                    label="Direccion"></v-text-field>
+                  </v-flex>
+                </v-layout>
+              </v-container>
+            </v-card-text>
+
+            <v-card-text>
+              <v-container grid-list-md>
+                <v-layout wrap>
+                  <v-flex xs12 sm12 md12>
+                    <v-text-field v-model="email" 
+                    :rules="ruleCorreo"
+                    required
+                    label="Correo Electronico"></v-text-field>
+                  </v-flex>
+                </v-layout>
+              </v-container>
+            </v-card-text>
+
+
+            <v-card-text>
+              <v-container grid-list-md>
+                <v-layout wrap>
+                  <v-flex xs12 sm12 md12>
+           <v-text-field
+           v-model="password"
+            :append-icon="show2 ? 'visibility' : 'visibility_off'"
+            :type="show2 ? 'text' : 'password'"
+            name="input-10-2"
+            label="Visible"
+            hint="At least 8 characters"
+            value="wqfasds"
+            class="input-group--focused"
+            :rules="rules"
+            @click:append="show2 = !show2"
+          ></v-text-field>
+          </v-flex>
+                </v-layout>
+              </v-container>
+            </v-card-text>
+
+             <v-card-text>
+              <v-container grid-list-md>
+                <v-layout wrap>
+                  <v-flex xs12 sm12 md12>
+                    <v-text-field v-model="celular"
+                                        :rules="ruleCelular"
+                                        required
+                                     type="number"
+
+                  label="Celular"></v-text-field>
+                  </v-flex>
+                </v-layout>
+              </v-container>
+            </v-card-text>
+
+           
+            
+            <v-card-text>
+              <v-container grid-list-md>
+                <v-layout wrap>
+                  <v-flex xs12 sm12 md12>
+                    <v-select
+                        v-model="selected_Departamento"
+                        :items="departamento"
+                        item-text= "nombre"
+                        item-value="codigo"
+                        label="Departamento"
+                        persistent-hint
+                        return-object
+                        @change=listar_distrito(selected_Departamento.nombre)
+                        single-line
+                    ></v-select>
+                  </v-flex>
+                </v-layout>
+              </v-container>
+            </v-card-text>
+
+            <v-card-text>
+              <v-container grid-list-md>
+                <v-layout wrap>
+                  <v-flex xs12 sm12 md12>
+                    <v-select
+                        v-model="selected_Distrito"
+                        :items="distrito"
+                        item-text="nombre"
+                        item-value="codigo"
+                        label="Distrito"
+                        persistent-hint
+                        return-object
+                        @change=listar_condominio(selected_Distrito.nombre)
+
+                        single-line
+                    ></v-select>
+                  </v-flex>
+                </v-layout>
+              </v-container>
+            </v-card-text>
+
+            <v-card-text>
+              <v-container grid-list-md>
+                <v-layout wrap>
+                  <v-flex xs12 sm12 md12>
+                    <v-select
+                        v-model="selected_Condominio"
+                        :items="condominio"
+                        item-text="nombre"
+                        item-value="codigo"
+                        label="Condominio"
+                        :rules="[v => !!v || 'Item is required']"
+                        required
+                    ></v-select>
+                  </v-flex>
+                </v-layout>
+              </v-container>
+            </v-card-text>
+
+            <v-card-text>
+              <v-container grid-list-md>
+                <v-layout wrap>
+                  <v-flex xs12 sm12 md12>
+                    <v-select
+                        v-model="selected_Sexo"
+                        :items="sexo"
+                        item-text= "nombre"
+                        item-value="codigo"
+                        label="Sexo"
+                        :rules="[v => !!v || 'Item is required']"
+                        required
+                    ></v-select>
+                  </v-flex>
+                </v-layout>
+              </v-container>
+            </v-card-text>
+
+             <v-card-actions>
+              <v-spacer></v-spacer>
+               <v-btn 
+          @click.native="close" color="primary">
+            Cancelar
+      </v-btn>
+      <v-btn 
+          @click.native="guardar" color="primary">
+            Guardar
+      </v-btn>
+            </v-card-actions>
+
+          </v-form>
+
+          </v-card>
+        </v-dialog>
+
 
 
 
@@ -55,7 +281,26 @@ export default {
   data() {
     return {
       generador: [],
+      departamento:[],
+      distrito:[],
+      condominio:[],
+      sexo:[],
+      selected_Distrito: {  codigo: 0 },
+      selected_Departamento: {  codigo: 0 },
+      selected_Condominio: null,
+      selected_Sexo: null,
+      valid: false,
+      show2:false,
       dialog: false,
+      ruleNombre: [v => !!v || 'Nombre es requerido'],
+      ruleDNI: [v => !!v || 'DNI es requerido',  v => (v && v < 100000000 && v > 9999999) || 'DNI debe ser de 8 caracteres'],
+      ruleApellido: [v => !!v || 'Apellido es requerido'],
+      ruleDireccion: [v => !!v || 'Direccion es requerido'],
+      ruleCelular: [v => !!v || 'Celular es requerido',  v => (v && v < 1000000000 && v > 99999999) || 'Celular debe ser de 9 caracteres'],
+      ruleCorreo: [v => !!v || 'Correo es requerido',v => !v || /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v)  || 'E-mail must be valid' ],
+      rules: [v => !!v || 'Password es requerido',  v => (v && v.length >= 4) || 'DNI debe ser mas de 4 caracteres'],
+
+      picker: new Date().toISOString().substr(0, 10),
       headers: [
         { text: "Nombres", value: "nombre", sortable: false },
         { text: "Apellido", value: "apellido", sortable: false },
@@ -67,6 +312,18 @@ export default {
       search: "",
       editedIndex: -1,
       //TODO:Model
+       codigo: '',
+      nombre:'',
+      apellido:'',
+      celular:'',
+      dni:'',
+      direccion:'',
+      email:'',
+      password:'',
+      distrito_id: 0,
+      condominio_id: 0,
+      departamento_id: 0,
+      sexo_id: 0
 
     };
   },
@@ -85,6 +342,8 @@ export default {
   created() {
     //TODO
     this.listar();
+    this.listar_departamento();
+    this.listar_sexo();
   },
   methods: {
     listar() {
@@ -95,39 +354,92 @@ export default {
       .then(function(response){me.generador=response.data;})
       .catch(function(error){console.log(error);});
     },
+    listar_departamento(){
+      let me=this;
+      axios
+      .get("/departamento")
+      .then(function(response){me.departamento=response.data;})
+      .catch(function(error){console.log(error);});
+    },
+    listar_distrito(dep){
+      let me=this;
+      axios
+      .get("/distrito/" + dep)
+      .then(function(response){me.distrito=response.data;})
+      .catch(function(error){console.log(error);});
+    },
+    listar_condominio(dist){
+      let me=this;
+      axios
+      .get("/condominio/distrito/"+dist)
+      .then(function(response){me.condominio=response.data;})
+      .catch(function(error){console.log(error);});
+    },
+    listar_sexo(){
+      let me=this;
+      axios
+      .get("/sexo" )
+      .then(function(response){me.sexo=response.data;})
+      .catch(function(error){console.log(error);});
+    },
     close() {
       this.dialog = false;
       this.limpiar();
       this.editedIndex = -1;
+      this.$refs.form.resetValidation()
+
     },
 
     open(){
       this.dialog = true;
     },
     limpiar() {
-      this.codigo = "";
       this.nombre = "";
-      this.distrito_id = 0;
-      this.condominio_id = 0;
+      this.picker= new Date().toISOString().substr(0, 10),
+      this.apellido="";
+      this.celular="";
+      this.dni="";
+      this.direccion="";
+      this.email="";
+      this.password="";
+      this.selected_Distrito= {  codigo: 0 };
+      this.selected_Departamento ={  codigo: 0 };
+      this.selected_Condominio= null;
+      this.selected_Sexo= null;
     },
     guardar() {
-     //TODO
-        /* let me=this;
+      this.$refs.form.validate()
+      if(this.valid){
+        console.log(1);
+      let me=this;
          axios
-         .post("/generador",{
+         .post("/usuario",{
              nombre:me.nombre,
-              departamento: {
-             codigo: me.selected_Department.codigo 
+             apellido: me.apellido,
+             dni:me.dni,
+             direccion:me.direccion,
+             email:me.email,
+             password:me.password,
+             fecha_Nacimiento:me.picker,
+             salt:me.salt,
+             telefono:me.celular,
+             sexo:{
+               codigo: me.selected_Sexo
+             },
+             condominio: {
+             codigo: me.selected_Condominio 
             }
          })
          .then(function(response){
              me.close();
              me.listar();
              me.limpiar();
+
          })
          .catch(function(error){
              console.log(error);
-         });*/
+         });
+      }
     }
   }
 };

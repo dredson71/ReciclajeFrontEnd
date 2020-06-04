@@ -19,9 +19,6 @@
             Nuevo
       </v-btn>
 
-        
-
-
       </v-toolbar>
       <v-data-table
     :headers="headers"
