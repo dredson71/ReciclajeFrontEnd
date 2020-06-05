@@ -15,6 +15,8 @@ import Generadores from '../components/Generador.vue'
 import Generador_Detail from '../components/Generador_Detail.vue'
 import Recicladores from '../components/Reciclador.vue'
 import Reciclador_Detail from '../components/Reciclador_Detail.vue'
+import Recoleccion from '../components/Recoleccion.vue'
+import Recoleccion_Detail from '../components/Recoleccion_Detail.vue'
 
 
 Vue.use(VueRouter)
@@ -45,6 +47,17 @@ Vue.use(VueRouter)
     path: '/distrito/:distritoID',
     name: 'distritos_detail',
     component: Distrito_Detail,
+    props: true,
+  },
+  {
+    path: '/recoleccion',
+    name: 'recolecciones',
+    component: Recoleccion
+  },
+  {
+    path: '/recoleccion/:recoleccionID',
+    name: 'recoleccion_detail',
+    component: Recoleccion_Detail,
     props: true,
   },
   {

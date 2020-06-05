@@ -7,6 +7,12 @@
   color="primary">
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>Reciclemos</v-toolbar-title>
+      <v-toolbar-title>Condominio</v-toolbar-title>
+      <v-toolbar-title>Residuo</v-toolbar-title>
+
+
+
+      
   </v-app-bar>
   
         <v-navigation-drawer app v-model="drawer" class="primary">
@@ -56,6 +62,7 @@ export default {
           { icon: 'folder', text: 'Reciclador' ,route: '/reciclador' },
           { icon: 'folder', text: 'Asociación' ,route: '/asociacion' },
           { icon: 'folder', text: 'Condominio' ,route: '/condominio' },
+           { icon: 'folder', text: 'Recoleccion' ,route: '/recoleccion' },
           { icon: 'folder', text: 'Residuo' ,route: '/residuo' },
         ]
     }

@@ -309,7 +309,7 @@ export default {
         { text: "Nombres", value: "nombre", sortable: false },
         { text: "Apellidos", value: "apellido", sortable: false },
         {text: 'DNI',value: 'dni',sortable:false},
-        {text: 'Condominio',value: 'condominio.distrito.nombre',sortable:false},
+        {text: 'Distrito',value: 'distrito.nombre',sortable:false},
         {text: 'Asociacion',value: 'asociacion.nombre',sortable:false},
         {text: 'Actions',value: 'actions',sortable:false},
       ],
