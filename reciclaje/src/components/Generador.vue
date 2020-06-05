@@ -57,10 +57,9 @@
               <v-container grid-list-md>
                 <v-layout wrap>
                   <v-flex xs12 sm12 md12>
-                    <v-text-field v-model.number="dni" 
+                    <v-text-field v-model="dni" 
                     :rules="ruleDNI"
                      required
-                    type="number"
                     label="DNI"></v-text-field>
                   </v-flex>
                 </v-layout>
@@ -292,13 +291,13 @@ export default {
       valid: false,
       show2:false,
       dialog: false,
-      ruleNombre: [v => !!v || 'Nombre es requerido'],
-      ruleDNI: [v => !!v || 'DNI es requerido',  v => (v && v < 100000000 && v > 9999999) || 'DNI debe ser de 8 caracteres'],
-      ruleApellido: [v => !!v || 'Apellido es requerido'],
-      ruleDireccion: [v => !!v || 'Direccion es requerido'],
+      ruleNombre: [v => !!v || 'Nombre es requerido', v => (v && v.length <=50 ) || 'Nombre debe ser menor a 50 caracteres'],
+      ruleDNI: [v => !!v || 'DNI es requerido',  v => (v && v.length == 8)  || 'DNI debe ser de 8 caracteres'],
+      ruleApellido: [v => !!v || 'Apellido es requerido', v => (v && v.length <=50 ) || 'Apellido debe ser menor a 50 caracteres'],
+      ruleDireccion: [v => !!v || 'Direccion es requerido', v => (v && v.length <=50 ) || 'Direccion debe ser menor a 50 caracteres'],
       ruleCelular: [v => !!v || 'Celular es requerido',  v => (v && v < 1000000000 && v > 99999999) || 'Celular debe ser de 9 caracteres'],
-      ruleCorreo: [v => !!v || 'Correo es requerido',v => !v || /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v)  || 'E-mail must be valid' ],
-      rules: [v => !!v || 'Password es requerido',  v => (v && v.length >= 4) || 'DNI debe ser mas de 4 caracteres'],
+      ruleCorreo: [v => !!v || 'Correo es requerido',v => !v || /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v)  || 'E-mail must be valid', v => (v && v.length <=50 ) || 'Correo debe ser menor a 50 caracteres' ],
+      rules: [v => !!v || 'Password es requerido',  v => (v && v.length >= 4) || 'Password debe ser mas de 4 caracteres'],
 
       picker: new Date().toISOString().substr(0, 10),
       headers: [

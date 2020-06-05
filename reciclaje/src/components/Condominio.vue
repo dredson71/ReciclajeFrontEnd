@@ -216,7 +216,6 @@ export default {
         {text: 'Número del Contacto',value: 'numeroContacto',sortable:false},
         {text: "Reciclador", value: "reciclador.nombreCompleto", sortable: false },
         {text: 'Actions',value: 'actions',sortable:false},
-
       ],
       search: "",
       editedIndex: -1,
