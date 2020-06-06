@@ -1,20 +1,23 @@
+.navigation_tile {
+  margin: 5px;
+  color: white;
+  border-radius: 4px;
+}
 
-  .navigation_tile {
-    margin: 5px;
-    color: white;
-    border-radius: 4px;
-  }
+.mr-2{
+  color: black;
 
-  .mr-2{
-    color: black;
+}
+.listaSelect{
+  margin-left: 25px;
+}
 
-  }
-
-  .combobox {
-    width: 100%;
-    justify-content: center;
+.combobox {
+  width: 100%;
+  justify-content: center;
 }
 
 .Title_App{
-  color: white;
+color: white;
 }
+ 

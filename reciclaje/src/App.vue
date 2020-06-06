@@ -6,9 +6,59 @@
 
   color="primary">
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>Reciclemos</v-toolbar-title>
-      <v-toolbar-title>Condominio</v-toolbar-title>
-      <v-toolbar-title>Residuo</v-toolbar-title>
+      <v-toolbar-title       >Reciclemos</v-toolbar-title>
+        <v-list dense color="primary" class ="listaSelect" > 
+
+      <v-list-group
+      color="white"
+      
+      >
+        <template v-slot:activator>
+          <v-list-item-title>Usuarios</v-list-item-title>
+        </template>
+              <v-list-item v-for="item in items2" :key="item.text" router :to="item.route">
+
+          <v-list-item-content>
+            <v-list-item-title class="navigation_tile">{{ item.text }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+    
+      </v-list-group>
+    </v-list>
+
+    <v-list dense color="primary" class ="listaSelect" > 
+
+      <v-list-group
+      color="white"
+      
+      >
+        <template v-slot:activator>
+          <v-list-item-title>Solicitudes</v-list-item-title>
+        </template>
+              <v-list-item v-for="item in items_Solicitudes" :key="item.text" router :to="item.route">
+
+          <v-list-item-content>
+            <v-list-item-title class="navigation_tile">{{ item.text }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+    
+      </v-list-group>
+    </v-list>
+    
+     <v-btn
+          v-for="item in itemss"
+          :key="item.text"
+          router :to="item.route"
+          color="primary"
+          class="listaSelect"
+          small
+          depressed
+          
+          
+        >
+          {{ item.text }}
+        </v-btn>
+
 
 
 
@@ -58,15 +108,28 @@ export default {
           { icon: 'dashboard', text: 'Inicio',route: '/' },
           { icon: 'folder', text: 'Departamento',route: '/departamento'  },
           { icon: 'folder', text: 'Distrito' ,route: '/distrito' },
+          { icon: 'folder', text: 'Asociación' ,route: '/asociacion' }
+        ],
+         items2: [
           { icon: 'folder', text: 'Generador' ,route: '/generador' },
           { icon: 'folder', text: 'Reciclador' ,route: '/reciclador' },
-          { icon: 'folder', text: 'Asociación' ,route: '/asociacion' },
-          { icon: 'folder', text: 'Condominio' ,route: '/condominio' },
-           { icon: 'folder', text: 'Recoleccion' ,route: '/recoleccion' },
+        ],
+        items_Solicitudes: [
+          { icon: 'folder', text: 'Generador' ,route: '/solicitud_generador' },
+          { icon: 'folder', text: 'Condominio' ,route: '' },
+        ], 
+        itemss: [
+           { icon: 'folder', text: 'Condominio' ,route: '/condominio' },
+          { icon: 'folder', text: 'Recoleccion' ,route: '/recoleccion' },
           { icon: 'folder', text: 'Residuo' ,route: '/residuo' },
-        ]
+        ],
     }
-  }
+  },
+  methods:{
+    onClick (e, item) {
+        e.stopPropagation()
+      },
+  },
 }
 </script>
 <style>

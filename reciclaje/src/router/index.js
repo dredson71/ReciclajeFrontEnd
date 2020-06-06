@@ -17,6 +17,7 @@ import Recicladores from '../components/Reciclador.vue'
 import Reciclador_Detail from '../components/Reciclador_Detail.vue'
 import Recoleccion from '../components/Recoleccion.vue'
 import Recoleccion_Detail from '../components/Recoleccion_Detail.vue'
+import Solicitud_Generador from '../components/Solicitud_Generador.vue'
 
 
 Vue.use(VueRouter)
@@ -48,6 +49,11 @@ Vue.use(VueRouter)
     name: 'distritos_detail',
     component: Distrito_Detail,
     props: true,
+  },
+  {
+    path: '/solicitud_generador',
+    name: 'solicitud_generador',
+    component: Solicitud_Generador
   },
   {
     path: '/recoleccion',
