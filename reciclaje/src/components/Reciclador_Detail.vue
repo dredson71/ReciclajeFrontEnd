@@ -386,23 +386,32 @@ export default {
         console.log(this.reciclador.direccion);
         console.log(this.selected_Distrito);
         console.log(this.selected_asociacion);
-      }
-        /*  let me =this;
-          console.log( me.departamento_id)
+      
+         let me =this;
          axios
-         .put("/distrito",{
-            codigo:me.distrito.codigo,
-            nombre:me.distrito.nombre,
-            departamento: {
-                 codigo: me.departamento_id
+         .put("/reciclador/id/"+this.recicladorID ,{
+           
+             nombre:me.nombre,
+             apellido: me.apellido,
+             dni:me.dni,
+             direccion:me.direccion,
+             email:me.email,
+             zona:me.zona,
+             celular:me.celular,
+             asociacion:{
+               codigo: me.selected_asociacion
+             },
+             distrito: {
+             codigo: me.selected_Distrito       
             }
          })
          .then(function(response){
-            window.location.href = '/distrito';
+            window.location.href = '/reciclador';
          })
          .catch(function(error){
              console.log(error);
-         });*/
+         });
+         }
      
     }
   }

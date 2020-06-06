@@ -386,24 +386,29 @@ export default {
         console.log(this.generador.direccion);
         console.log(this.selected_Condominio);
         console.log(this.selected_asociacion);
-      }
-        /*  let me =this;
-          console.log( me.departamento_id)
+         let me =this;
          axios
-         .put("/distrito",{
-            codigo:me.distrito.codigo,
-            nombre:me.distrito.nombre,
-            departamento: {
-                 codigo: me.departamento_id
+         .put("/usuario/id/"+this.generadorID,{
+            nombre:me.nombre,
+             apellido: me.apellido,
+             dni:me.dni,
+             direccion:me.direccion,
+             email:me.email,
+             telefono:me.celular,
+             sexo:{
+               codigo: me.selected_Sexo
+             },
+             condominio: {
+             codigo: me.selected_Condominio 
             }
          })
          .then(function(response){
-            window.location.href = '/distrito';
+            window.location.href = '/generador';
          })
          .catch(function(error){
              console.log(error);
-         });*/
-     
+         });
+       }
     }
   }
 };
