@@ -1,25 +1,5 @@
 <template>
    <div>
-     <apexchart width="500" type="bar" :options="chartOptions" :series="series"></apexchart>
+     <iframe width="1300" height="800" src="https://app.powerbi.com/view?r=eyJrIjoiNzEyNjEyYTgtMGFhMi00YWFmLTliMGYtYmNhOGI3ZTdmNjkzIiwidCI6IjY2YzliMGUxLTA0MjgtNDE5Yy1hYTQwLWEzMzc4Mjg2ZDMzMiJ9" frameborder="0" allowFullScreen="true"></iframe>
    </div>
 </template>
-<script>
-  export default {
-    data: function() {
-      return {
-        chartOptions: {
-          chart: {
-            id: 'vuechart-example'
-          },
-          xaxis: {
-            categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
-          }
-        },
-        series: [{
-          name: 'series-1',
-          data: [30, 40, 45, 50, 49, 60, 70, 91]
-        }]
-      }
-    },
-};
-</script>
