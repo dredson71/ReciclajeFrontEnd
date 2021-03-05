@@ -1,3 +1,3 @@
 <template>
-     <iframe width="100%" height="100%" src="https://app.powerbi.com/view?r=eyJrIjoiNzEyNjEyYTgtMGFhMi00YWFmLTliMGYtYmNhOGI3ZTdmNjkzIiwidCI6IjY2YzliMGUxLTA0MjgtNDE5Yy1hYTQwLWEzMzc4Mjg2ZDMzMiJ9" frameborder="0" allowFullScreen="true"></iframe>
+     <iframe width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiMTQ4NDg2MDctOGEyYi00ZTNkLThlZDktODc3ZjYwNTQzN2FkIiwidCI6IjBlMGNiMDYwLTA5YWQtNDlmNS1hMDA1LTY4YjliNDlhYTFmNiIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>
 </template>
